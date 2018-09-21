@@ -1,6 +1,5 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
-    <h1 class="title">客户端管理系统</h1>
     <el-menu
       :show-timeout="200"
       :default-active="$route.path"
