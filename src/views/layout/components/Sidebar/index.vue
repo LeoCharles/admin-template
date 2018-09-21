@@ -24,7 +24,9 @@ export default {
     ...mapGetters([
       'sidebar'
     ]),
+    // 路由
     routes() {
+      console.log(this.$router.options.routes)
       return this.$router.options.routes
     },
     isCollapse() {

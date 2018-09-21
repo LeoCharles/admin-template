@@ -21,6 +21,7 @@ import Layout from '../views/layout/Layout'
     icon: 'svg-name'             the icon show in the sidebar,
   }
 **/
+// 通用路由表
 export const constantRouterMap = [
   { path: '/login', component: () => import('@/views/login/index'), hidden: true },
   { path: '/404', component: () => import('@/views/404'), hidden: true },
@@ -31,119 +32,158 @@ export const constantRouterMap = [
     redirect: '/dashboard',
     name: 'Dashboard',
     hidden: true,
-    children: [{
-      path: 'dashboard',
-      component: () => import('@/views/dashboard/index')
-    }]
-  },
-
-  {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'dashboard',
+        component: () => import('@/views/dashboard/index')
+      }
+    ]
+  },
+  {
+    path: '/finance',
+    component: Layout,
+    redirect: '/finance/companyRecharge',
+    name: 'finance',
+    meta: { title: '财务管理', icon: 'example' },
+    children: [
+      {
+        path: 'companyRecharge',
+        name: 'companyRecharge',
+        component: () => import('@/views/finance/companyRecharge/index.vue'),
+        meta: { title: '企业充值记录', icon: 'form' }
       },
       {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
+        path: 'membershipRecharge',
+        name: 'membershipRecharge',
+        component: () => import('@/views/finance/membershipRecharge/index.vue'),
+        meta: { title: '会员充值记录', icon: 'form' }
+      },
+      {
+        path: 'creditRecord',
+        name: 'creditRecord',
+        component: () => import('@/views/finance/creditRecord/index.vue'),
+        meta: { title: '授信记录', icon: 'form' }
       }
     ]
   },
-
   {
-    path: '/form',
+    path: '/order',
     component: Layout,
+    redirect: '/order/companyOrder',
+    name: 'order',
+    meta: { title: '订单管理', icon: 'example' },
     children: [
       {
-        path: 'index',
-        name: 'Form',
-        component: () => import('@/views/form/index'),
-        meta: { title: 'Form', icon: 'form' }
+        path: 'companyOrder',
+        name: 'companyOrder',
+        component: () => import('@/views/order/companyOrder/index.vue'),
+        meta: { title: '企业订单记录', icon: 'form' }
+      },
+      {
+        path: 'membershipOrder',
+        name: 'membershipOrder',
+        component: () =>
+          import('@/views/order/membershipOrder/index.vue'),
+        meta: { title: '会员订单记录', icon: 'form' }
+      },
+      {
+        path: 'exceptionOrder',
+        name: 'exceptionOrder',
+        component: () =>
+          import('@/views/order/exceptionOrder/index.vue'),
+        meta: { title: '会员异常订单', icon: 'form' }
       }
     ]
   },
-
   {
-    path: '/nested',
+    path: '/review',
     component: Layout,
-    redirect: '/nested/menu1',
-    name: 'Nested',
+    redirect: '/review/rechargeReview',
+    name: 'review',
     meta: {
-      title: 'Nested',
-      icon: 'nested'
+      title: '审核专区',
+      icon: 'example'
     },
-    children: [
-      {
-        path: 'menu1',
-        component: () => import('@/views/nested/menu1/index'), // Parent router-view
-        name: 'Menu1',
-        meta: { title: 'Menu1' },
-        children: [
-          {
-            path: 'menu1-1',
-            component: () => import('@/views/nested/menu1/menu1-1'),
-            name: 'Menu1-1',
-            meta: { title: 'Menu1-1' }
-          },
-          {
-            path: 'menu1-2',
-            component: () => import('@/views/nested/menu1/menu1-2'),
-            name: 'Menu1-2',
-            meta: { title: 'Menu1-2' },
-            children: [
-              {
-                path: 'menu1-2-1',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-1'),
-                name: 'Menu1-2-1',
-                meta: { title: 'Menu1-2-1' }
-              },
-              {
-                path: 'menu1-2-2',
-                component: () => import('@/views/nested/menu1/menu1-2/menu1-2-2'),
-                name: 'Menu1-2-2',
-                meta: { title: 'Menu1-2-2' }
-              }
-            ]
-          },
-          {
-            path: 'menu1-3',
-            component: () => import('@/views/nested/menu1/menu1-3'),
-            name: 'Menu1-3',
-            meta: { title: 'Menu1-3' }
-          }
-        ]
-      },
-      {
-        path: 'menu2',
-        component: () => import('@/views/nested/menu2/index'),
-        meta: { title: 'menu2' }
+    children: [{
+      path: 'rechargeReview',
+      name: 'rechargeReview',
+      component: () =>
+          import('@/views/review/rechargeReview/index.vue'),
+      meta: {
+        title: '充值审核',
+        icon: 'form'
       }
+    },
+    {
+      path: 'creditReview',
+      name: 'creditReview',
+      component: () =>
+          import('@/views/review/creditReview/index.vue'),
+      meta: {
+        title: '授信审核',
+        icon: 'form'
+      }
+    },
+    {
+      path: 'invoiceReview',
+      name: 'invoiceReview',
+      component: () =>
+          import('@/views/review/invoiceReview/index.vue'),
+      meta: {
+        title: '发票审核',
+        icon: 'form'
+      }
+    }
     ]
   },
-
   {
-    path: 'external-link',
+    path: '/statistics',
     component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
+    redirect: '/statistics/rechargeStatistics',
+    name: 'statistics',
+    meta: {
+      title: '报表统计',
+      icon: 'example'
+    },
+    children: [{
+      path: 'rechargeStatistics',
+      name: 'rechargeStatistics',
+      component: () =>
+          import('@/views/statistics/rechargeStatistics/index.vue'),
+      meta: {
+        title: '充值统计',
+        icon: 'form'
       }
+    },
+    {
+      path: 'consumeStatistics',
+      name: 'consumeStatistics',
+      component: () =>
+          import('@/views/statistics/consumeStatistics/index.vue'),
+      meta: {
+        title: '消费统计',
+        icon: 'form'
+      }
+    },
+    {
+      path: 'balanceStatistics',
+      name: 'balanceStatistics',
+      component: () =>
+          import('@/views/statistics/balanceStatistics/index.vue'),
+      meta: {
+        title: '余额统计',
+        icon: 'form'
+      }
+    }
     ]
   },
-
   { path: '*', redirect: '/404', hidden: true }
 ]
 
+// 根据权限动态加载的路由表
+export const asyncRouterMap = []
+
+// 默认只挂载通用路由表
 export default new Router({
   // mode: 'history', //后端支持可开
   scrollBehavior: () => ({ y: 0 }),

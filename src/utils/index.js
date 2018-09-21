@@ -2,6 +2,40 @@
  * 工具函数库
  */
 
+// 检测数据类型
+export function $typeOf(v) {
+  return Object.prototype.toString
+    .call(v)
+    .slice(8, -1)
+    .toLowerCase()
+}
+
+// 判断是否为空
+export function $isEmpty(val) {
+  return val == null || !(Object.keys(val) || val).length
+}
+
+// 生成唯一id
+export function $generateUniqueId() {
+  function S4() {
+    return (((1 + Math.random()) * 0x10000) | 0).toString(16).substring(1)
+  }
+  return (
+    S4() +
+    S4() +
+    '-' +
+    S4() +
+    '-' +
+    S4() +
+    '-' +
+    S4() +
+    '-' +
+    S4() +
+    S4() +
+    S4()
+  )
+}
+
 export function parseTime(time, cFormat) {
   if (arguments.length === 0) {
     return null

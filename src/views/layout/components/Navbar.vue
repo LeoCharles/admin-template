@@ -1,7 +1,11 @@
 <template>
+  <!-- 头部导航条 -->
   <el-menu class="navbar" mode="horizontal">
+    <!-- 展开按钮 -->
     <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+    <!-- 面包屑导航 -->
     <breadcrumb />
+    <!-- 用户信息 -->
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
         <img :src="avatar+'?imageView2/1/w/80/h/80'" class="user-avatar">
@@ -38,12 +42,15 @@ export default {
     ])
   },
   methods: {
+    // 切换展开按钮
     toggleSideBar() {
       this.$store.dispatch('ToggleSideBar')
     },
+    // 登出
     logout() {
       this.$store.dispatch('LogOut').then(() => {
-        location.reload() // 为了重新实例化vue-router对象 避免bug
+        // 为了重新实例化vue-router对象 避免bug
+        location.reload()
       })
     }
   }

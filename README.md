@@ -1,17 +1,14 @@
-# vue-admin-template
+# admin-template
 
 > 这是一个基于 Element UI 的管理后台
 
 ## Build Setup
 
 ```bash
-# Clone project
-git clone https://github.com/PanJiaChen/vue-admin-template.git
-
 # Install dependencies
 npm install
 
-# 安装有各种诡异的bug 可以通过如下操作解决npm速度慢的问题
+# 可以通过如下操作解决npm速度慢的问题
 npm install --registry=https://registry.npm.taobao.org
 
 # Serve with hot reload at localhost:9528

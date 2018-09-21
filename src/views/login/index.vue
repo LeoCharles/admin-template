@@ -25,7 +25,7 @@
       </el-form-item>
       <el-form-item>
         <el-button :loading="loading" type="primary" style="width:100%;" @click.native.prevent="handleLogin">
-          Sign in
+          登录
         </el-button>
       </el-form-item>
       <div class="tips">
@@ -79,6 +79,7 @@ export default {
     }
   },
   methods: {
+    // 显示密码
     showPwd() {
       if (this.pwdType === 'password') {
         this.pwdType = ''
@@ -86,10 +87,12 @@ export default {
         this.pwdType = 'password'
       }
     },
+    // 登录
     handleLogin() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
           this.loading = true
+          // 登录请求
           this.$store.dispatch('Login', this.loginForm).then(() => {
             this.loading = false
             this.$router.push({ path: this.redirect || '/' })
