@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     企业充值记录
   </div>
 </template>

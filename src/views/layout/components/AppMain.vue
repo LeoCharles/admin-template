@@ -3,7 +3,7 @@
     <transition name="fade-transform" mode="out-in">
       <!-- or name="fade" -->
       <!-- <router-view :key="key"></router-view> -->
-      <router-view class="main-view"/>
+      <router-view/>
     </transition>
   </section>
 </template>
@@ -21,7 +21,7 @@ export default {
 
 <style scoped>
 .app-main {
-  /*50 = navbar  */
+  /* navbar:50, footerbar:50  */
   min-height: calc(100vh - 100px);
   position: relative;
   overflow: hidden;

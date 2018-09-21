@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     会员订单记录
   </div>
 </template>

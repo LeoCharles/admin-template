@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     发票审核
   </div>
 </template>

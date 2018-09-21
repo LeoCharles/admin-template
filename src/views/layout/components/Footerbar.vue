@@ -21,4 +21,9 @@ $bgc:#1f2d3d;
   font-size: 12px;
   color: #ccc;
 }
+.mobile {
+  .footerbar {
+    display: none;
+  }
+}
 </style>

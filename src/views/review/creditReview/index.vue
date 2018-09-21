@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     授信审核
   </div>
 </template>

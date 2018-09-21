@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="">
     充值统计
   </div>
 </template>

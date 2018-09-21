@@ -1,8 +1,15 @@
 <template>
   <div class="dashboard-container">
-    <h2>工作台</h2>
-    <div class="dashboard-text">name:{{ name }}</div>
-    <div class="dashboard-text">roles:<span v-for="role in roles" :key="role">{{ role }}</span></div>
+    <!-- 当日数据 -->
+    <div>
+      <h3>当日数据</h3>
+      <div>数据</div>
+    </div>
+    <!-- 当日异常订单 -->
+    <div>
+      <h3>当日异常订单</h3>
+      <div>数据</div>
+    </div>
   </div>
 </template>
 
@@ -24,10 +31,6 @@ export default {
 .dashboard {
   &-container {
     margin: 30px;
-  }
-  &-text {
-    font-size: 30px;
-    line-height: 46px;
   }
 }
 </style>
