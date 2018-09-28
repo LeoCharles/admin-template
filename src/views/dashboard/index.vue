@@ -1,36 +1,35 @@
 <template>
   <div class="dashboard-container">
-    <!-- 当日数据 -->
     <div>
-      <h3>当日数据</h3>
-      <div>数据</div>
-    </div>
-    <!-- 当日异常订单 -->
-    <div>
-      <h3>当日异常订单</h3>
-      <div>数据</div>
+      <h3 class="title">当日数据</h3>
+      <panel-group @panelClick="handlePanelClick"/>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import PanelGroup from './components/PanelGroup'
 
 export default {
   name: 'Dashboard',
-  computed: {
-    ...mapGetters([
-      'name',
-      'roles'
-    ])
+  components: {
+    PanelGroup
+  },
+  methods: {
+    handlePanelClick(type) {
+      console.log(type)
+    }
   }
 }
 </script>
 
 <style rel="stylesheet/scss" lang="scss" scoped>
-.dashboard {
-  &-container {
-    margin: 30px;
+
+.dashboard-container {
+  .title {
+    font-size: 20px;
+    color: #333;
   }
 }
+
 </style>

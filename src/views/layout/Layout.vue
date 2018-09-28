@@ -6,14 +6,17 @@
     <!-- 主内容区 -->
     <div class="main-container">
       <navbar/>
+      <tags-view/>
       <app-main/>
       <footerbar/>
+      <back-to-top/>
     </div>
   </div>
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain, Footerbar } from './components'
+import { Navbar, Sidebar, AppMain, TagsView, Footerbar } from './components'
+import BackToTop from '@/components/BackToTop'
 import ResizeMixin from './mixin/ResizeHandler'
 
 export default {
@@ -22,7 +25,9 @@ export default {
     Navbar,
     Sidebar,
     AppMain,
-    Footerbar
+    Footerbar,
+    TagsView,
+    BackToTop
   },
   mixins: [ResizeMixin],
   computed: {

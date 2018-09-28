@@ -1,6 +1,5 @@
 <template>
   <div v-if="!item.hidden&&item.children" class="menu-wrapper">
-
     <template v-if="hasOneShowingChild(item.children,item) && (!onlyOneChild.children||onlyOneChild.noShowingChildren)&&!item.alwaysShow">
       <a :href="onlyOneChild.path" target="_blank" @click="clickLink(onlyOneChild.path,$event)">
         <el-menu-item :index="resolvePath(onlyOneChild.path)" :class="{'submenu-title-noDropdown':!isNest}">
@@ -89,6 +88,7 @@ export default {
     resolvePath(routePath) {
       return path.resolve(this.basePath, routePath)
     },
+    // 判断是否为外部链接
     isExternalLink(routePath) {
       return validateURL(routePath)
     },

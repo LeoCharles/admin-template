@@ -1,6 +1,6 @@
 <template>
   <div class="footerbar">
-    Copyright 2003-2033 dahantc.com Inc.All Rights Reserved.大汉三通版权所有
+    Copyright 2014-2018 LeoCharles All Rights Reserved 版权所有
   </div>
 </template>
 

@@ -6,6 +6,8 @@ import { Message } from 'element-ui'
 import { getToken } from '@/utils/auth' // 验权
 
 const whiteList = ['/login'] // 不重定向白名单
+
+// 权限验证
 router.beforeEach((to, from, next) => {
   NProgress.start()
   if (getToken()) {
@@ -18,7 +20,7 @@ router.beforeEach((to, from, next) => {
           next()
         }).catch((err) => {
           store.dispatch('FedLogOut').then(() => {
-            Message.error(err || 'Verification failed, please login again')
+            Message.error(err || '验证失败，请重新登录')
             next({ path: '/' })
           })
         })

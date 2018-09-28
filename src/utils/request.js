@@ -13,6 +13,7 @@ const service = axios.create({
 service.interceptors.request.use(
   config => {
     if (store.getters.token) {
+      // 请求头设置token
       config.headers['X-Token'] = getToken() // 让每个请求携带自定义token 请根据实际情况自行修改
     }
     return config
@@ -28,10 +29,10 @@ service.interceptors.request.use(
 service.interceptors.response.use(
   response => {
     /**
-     * code为非20000是抛错 可结合自己业务进行修改
+     * code为非200是抛错 可结合自己业务进行修改
      */
     const res = response.data
-    if (res.code !== 20000) {
+    if (res.code !== 200) {
       Message({
         message: res.message,
         type: 'error',

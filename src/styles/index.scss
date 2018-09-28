@@ -68,18 +68,46 @@ a:hover {
   }
 }
 
+// 通用样式
 #app {
   height: 100%;
   // 右侧内容区
   .main-container {
     min-height: 100%;
     transition: margin-left .28s;
-    margin-left: 180px;
+    margin-left: 200px;
     position: relative;
   }
-  // 主要内容区
-  .app-main {
-    height: 100%;
-    padding: 20px;
+}
+
+// 主要内容区
+.app-main {
+  height: 100%;
+  padding: 20px;
+  background-color: #f0f2f5;
+  // 查询表单
+  .search-form {
+    margin-bottom: 20px;
+    padding: 20px 0;
+    background-color: #fff;
+    &__inline {
+      display: flex;
+      .el-input--small {
+        width: 220px;
+      }
+    }
+    &__btn {
+      margin-left: 100px;
+    }
+  }
+  // 表格数据
+  .table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    .data-table {
+      margin-bottom: 20px;
+    }
   }
 }
